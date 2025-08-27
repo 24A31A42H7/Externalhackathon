@@ -33,7 +33,7 @@ const Leftbar = ({setFilter}) => {
 
 
   return (
-    <div className="p-4 bg-[#FF0000] flex flex-col justify-center">
+    <div className="p-4 bg-[#2563eb] flex flex-col justify-center mt-30 pl-10">
       <div>
         <label className="mr-2">Year:</label>
         <select
