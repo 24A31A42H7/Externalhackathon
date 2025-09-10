@@ -5,7 +5,7 @@ import studentModel from "./src/models/studentModel.js"; // import your model
 
 
 // Cron job to update student stats every day at 2:00 AM
-cron.schedule("30 4 * * *", async () => {
+cron.schedule("0 6 * * *", async () => {
   console.log("Cron job started: Updating student stats");
 
   try {
