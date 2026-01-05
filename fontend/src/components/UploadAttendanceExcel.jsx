@@ -15,7 +15,7 @@ const UploadAttendanceExcel = ({ onSuccess }) => {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:4000/api/attendance/upload-excel",
+        "https://externalhackathon.onrender.com/api/attendance/upload-excel",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
