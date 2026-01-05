@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import {Route,Routes} from 'react-router-dom'
 import AddStudent from './pages/AddStudent';
 import ListStudent from './pages/ListStudent';
+import AddListStudent from './pages/AddListStudent';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 export const url='https://externalhackathon.onrender.com'
