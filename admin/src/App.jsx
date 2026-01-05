@@ -5,7 +5,6 @@ import AddStudent from './pages/AddStudent';
 import ListStudent from './pages/ListStudent';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import AddListStudent from './pages/AddListStudent';
 export const url='http://localhost:4000'
 const App = () => {
   const [filter, setFilter] = useState(null);
