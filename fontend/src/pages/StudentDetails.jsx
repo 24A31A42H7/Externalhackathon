@@ -10,7 +10,7 @@ const StudentDetails = () => {
   useEffect(() => {
     fetchData();
   }, [month]);
-
+  
   const fetchData = async () => {
     const res = await getStudentMonthlyAttendance(rollNo, month, 2026);
     setData(res.data);
