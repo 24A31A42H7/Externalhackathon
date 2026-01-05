@@ -4,6 +4,7 @@ import Rightbar from './Rightbar'
 
 const Predictions = () => {
   const [filter,setFilter]=useState(null);
+  
   return (
     <div className='flex items-center sm:items-start min-h-screen flex-col sm:flex-row'>
       <Leftbar setFilter={setFilter}/>

@@ -1,11 +1,10 @@
-
 import cron from "node-cron";
 import axios from "axios";
 import studentModel from "./src/models/studentModel.js"; // import your model
 
 
 // Cron job to update student stats every day at 2:00 AM
-cron.schedule("0 6 * * *", async () => {
+cron.schedule("*/5 * * * *", async () => {
   console.log("Cron job started: Updating student stats");
 
   try {
@@ -25,13 +24,12 @@ cron.schedule("0 6 * * *", async () => {
         student.hackerrankStats = { profileUrl: `https://hackerrank-badges.vercel.app/${student.hackerrank}` };
       }
 
-      await student.save();
+      await student.Save();
       console.log(`Updated stats for ${student.name}`);
     }
 
     console.log("All student stats updated successfully!");
   } catch (err) {
-    console.error("Error updating student stats:", err);
-  }
+    console.error("Error updating student stats:", err);
+  }
 });
-

@@ -1,4 +1,4 @@
-import logo from './logo.png'
+import logo from './logo1.png'
 import close_icon from'./close_icon.png'
 import menu_icon from'./menu.png'
 import student_image from'./student_image.jpg'

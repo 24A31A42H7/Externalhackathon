@@ -11,7 +11,7 @@ const Togglebtn = (props) => {
     
   return (
     <div>
-        <button onClick={handleToggle} className={`${!btnbgColor?'bg-white text-black':'pink text-white'} w-full rounded-full border  border-gray-400 p-2 `}>{props.name}</button>
+        <button onClick={handleToggle} className={`${!btnbgColor?'bg-white text-black':'bg-white text-black'} w-full rounded-full border  border-gray-400 p-2 `}>{props.name}</button>
 
     </div>
   )

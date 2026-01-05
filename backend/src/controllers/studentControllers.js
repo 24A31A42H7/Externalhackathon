@@ -1,8 +1,30 @@
 import { v2 as cloudinary } from "cloudinary";
 import studentModel from "../models/studentModel.js";
 import axios from 'axios'
+import xlsx from "xlsx";
 
 
+// add students list as excel sheet
+const AddListStudent=async(req,res)=>{
+  try {
+    const file = req.file; // multer uploads file
+
+    // Read Excel
+    const workbook = xlsx.readFile(file.path);
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+    const data = xlsx.utils.sheet_to_json(sheet);
+
+    // Insert into DB
+    await studentModel.insertMany(data);
+
+    res.json({ success: true, message: "Excel data uploaded successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Upload failed" });
+  }
+
+}
 const addStudent = async (req, res) => {
   try {
     const name = req.body.name;
@@ -84,4 +106,4 @@ const removeStudent=async(req,res)=>{
     }
 
 };
-export { addStudent, listStudent ,removeStudent};
+export { addStudent, listStudent ,removeStudent,AddListStudent};

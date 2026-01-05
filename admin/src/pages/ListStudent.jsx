@@ -8,19 +8,40 @@ import Leetcode from '../components/Leetcode';
 
 
 
-const ListStudent = ({filter}) => {
+const ListStudent = ({filter,search}) => {
 
   const [studentData,setStudentData]=useState([]);
+  const fetchStuentWithId=async()=>{
+
+  }
   const fetchStudents=async()=>{
+    console.log(search);
       try {
         if(filter){
           // fetch filtred students 
           const response=await axios.post(`${url}/api/student/filter`,filter);
-          setStudentData(response.data.students);
+          
+          // search is rollNO
+          let students=response.data.students;
+          if(search){
+            students=students.filter((stu)=>stu.rollNo===search);
+            setStudentData(students);
+          }
+          setStudentData(students);
+          setSerch("");
+         
+
         }else{
           // fetch all students 
           const response =await axios.get(`${url}/api/student/list`);
-          setStudentData(response.data.students);
+          let students=response.data.students;
+          if(search){
+             students=students.filter((stu)=>stu.rollNo===search)
+            setStudentData(students);
+
+          }
+          setStudentData(students);
+          setSerch("");
         }
       } catch (error) {
             console.error("Error fetching students",error);
@@ -47,14 +68,14 @@ const ListStudent = ({filter}) => {
    
    fetchStudents();
 
-  },[filter])
+  },[filter,search])
 
   return (
     <div >
       <p>All Students List</p>
       <br />
       <div>
-        <div className='sm:grid hidden grid-cols-[0.5fr_1fr_2fr_1.5fr] items-center gap-2.5 p-3 border border-gray-300 text-sm mr-5 bg-gray-100'>
+        <div className='flex flex-col   sm:grid hidden grid-cols-[0.5fr_1fr_2fr_1.5fr] items-center gap-2.5 p-3 border border-gray-300 text-sm mr-5 bg-gray-100'>
           <b>Name</b>
           <b>Roll NO</b>
           <b>Leetcode</b>

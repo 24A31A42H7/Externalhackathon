@@ -11,7 +11,7 @@ const Leftbar = ({setFilter}) => {
   // Define branches for each year
   const yearBranches = {
     "1 YEAR": ["CSE", "ECE", "ME", "CE"],
-    "2 YEAR": ["CSE", "ECE", "ME", "CE","AIML-C"],
+    "2 YEAR": ["CSE", "ECE", "ME", "CE","AIML-A","AIML-B","AIML-C"],
     "3 YEAR": ["CSE", "ECE", "ME", "CE"],
     "4 YEAR": ["CSE", "ECE", "ME", "CE"],
   };
@@ -33,7 +33,7 @@ const Leftbar = ({setFilter}) => {
 
 
   return (
-    <div className="p-4 bg-[#FF0000] flex flex-col justify-center">
+    <div className="p-4 bg-[#2563eb] flex flex-col justify-center mt-30 pl-10">
       <div>
         <label className="mr-2">Year:</label>
         <select
